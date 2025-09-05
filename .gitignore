@@ -1,0 +1,43 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+*.ipr
+*.iws
+out/
+
+# Build
+build/
+app/build/
+*/build/
+
+# Archivos de log
+*.log
+
+# Cache
+.cxx/
+captures/
+.externalNativeBuild/
+*/.cxx/
+
+# Configuración de keystore (no subir credenciales)
+*.jks
+*.keystore
+key.properties
+
+# Archivos de empaquetado
+*.apk
+*.ap_
+*.aab
+
+# Archivos de depuración
+*.hprof
+
+# Archivos de sistema de OS
+*.swp
+*~

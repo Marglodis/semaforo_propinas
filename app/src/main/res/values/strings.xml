@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SemaforoPropinas</string>
+    <string name="tv_titulo">SEMÁFORO DE PROPINAS</string>
+    <string name="et_monto">Monto</string>
+    <string name="et_porcentaje">Porcentaje ( % )</string>
+    <string name="btn_calcular_propina">CALCULAR PROPINA</string>
+    <string name="imagen_de_estado">Imagen que muestra una reacción de acuerdo al monto de la propina</string>
+</resources>
