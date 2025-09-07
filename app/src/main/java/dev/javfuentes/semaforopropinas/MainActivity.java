@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Inflar la vista desde el archivo XML
         setContentView(R.layout.activity_main);
 
         // Inicialización de las vistas
@@ -40,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calcularPropina() {
-
         // Obtener texto de los campos
         String montoTexto = etMonto.getText().toString();
         String porcentajeTexto = etPorcentaje.getText().toString();
@@ -51,24 +48,31 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Convertir a números enteros
-        int monto = Integer.parseInt(montoTexto);
-        int porcentaje = Integer.parseInt(porcentajeTexto);
+        try {
+            // Convertir a números
+            double monto = Double.parseDouble(montoTexto);
+            int porcentaje = Integer.parseInt(porcentajeTexto);
 
-        // Calcular propina y total
-        int propina = monto * porcentaje / 100;
-        int total = monto + propina;
+            // Calcular propina y total
+            double propina = monto * porcentaje / 100.0;
+            double total = monto + propina;
 
-        // Mostrar resultado
-        String resultado = "Propina: $" + propina + "\nTotal: $" + total;
-        tvResultado.setText(resultado);
+            // Mostrar resultado con formato mejorado
+            String resultado = String.format("💰 Propina: $%.0f\n💳 Total: $%.0f", propina, total);
+            tvResultado.setText(resultado);
+            tvResultado.setVisibility(View.VISIBLE); // Hacer visible el resultado
 
-        // Cambiar imagen según porcentaje
-        cambiarImagen(porcentaje);
+            // Cambiar imagen según porcentaje
+            cambiarImagen(porcentaje);
+
+            Toast.makeText(this, "¡Cálculo realizado!", Toast.LENGTH_SHORT).show();
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Por favor ingresa números válidos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void cambiarImagen(int porcentaje) {
-
         // Hacer visible la imagen cuando se calcula
         ivEstado.setVisibility(View.VISIBLE);
 
